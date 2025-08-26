@@ -1,0 +1,36 @@
+2025-08-26 08:27:27,737 - root - INFO - Starting AI-Powered Static Analysis Tool v2.0.0
+2025-08-26 08:27:27,739 - orchestrator - INFO - Running enhanced targeted analysis - Report: False, Code: True, App URL: False, SAST: True, Dynamic: False, LLM: True
+2025-08-26 08:27:27,739 - orchestrator - INFO - Starting enhanced analysis workflow with robust error handling
+2025-08-26 08:27:27,739 - orchestrator - INFO - Step 1: Skipping report parsing (no report provided)
+2025-08-26 08:27:27,740 - orchestrator - INFO - Step 2: Analyzing source code
+2025-08-26 08:27:27,740 - code_analyzer - INFO - Starting aggressive code analysis of: ./ecommerce_sanity_stripe-main
+2025-08-26 08:27:27,741 - code_analyzer - INFO - Found 22 code files to analyze
+2025-08-26 08:27:27,744 - code_analyzer - DEBUG - Pattern detection: 3 endpoints in Cart.jsx
+2025-08-26 08:27:27,748 - code_analyzer - DEBUG - Pattern detection: 2 endpoints in hello.js
+2025-08-26 08:27:27,749 - code_analyzer - DEBUG - Pattern detection: 2 endpoints in stripe.js
+2025-08-26 08:27:27,753 - code_analyzer - INFO - Processed 9 raw endpoints into 2 final endpoints
+2025-08-26 08:27:27,753 - code_analyzer - INFO - Adding e-commerce fallback endpoints...
+2025-08-26 08:27:27,755 - code_analyzer - INFO - Aggressive analysis complete: 14 endpoints found from 3 files
+2025-08-26 08:27:27,756 - orchestrator - INFO - SUCCESS: Code analysis completed: 14 endpoints found
+2025-08-26 08:27:27,757 - orchestrator - INFO - Step 3: Running comprehensive SAST scan
+2025-08-26 08:27:27,757 - sast_runner - INFO - Starting comprehensive SAST scan
+2025-08-26 08:27:31,015 - sast_runner - INFO - Running Semgrep with config: auto
+2025-08-26 08:27:41,413 - sast_runner - WARNING - Semgrep config 'auto' failed (return code 2) - config may not exist
+2025-08-26 08:27:41,414 - sast_runner - WARNING - FAILED: auto scan failed
+2025-08-26 08:27:41,414 - sast_runner - INFO - Running Semgrep with config: p/security-audit
+2025-08-26 08:27:48,061 - sast_runner - WARNING - Semgrep config 'p/security-audit' failed (return code 2) - config may not exist
+2025-08-26 08:27:48,061 - sast_runner - WARNING - FAILED: security-audit scan failed
+2025-08-26 08:27:48,061 - sast_runner - INFO - Running Semgrep with config: p/javascript
+2025-08-26 08:27:54,213 - sast_runner - WARNING - Semgrep config 'p/javascript' failed (return code 2) - config may not exist
+2025-08-26 08:27:54,213 - sast_runner - WARNING - FAILED: javascript scan failed
+2025-08-26 08:27:54,213 - sast_runner - INFO - Running Semgrep with config: p/python
+2025-08-26 08:28:00,890 - sast_runner - WARNING - Semgrep config 'p/python' failed (return code 2) - config may not exist
+2025-08-26 08:28:00,890 - sast_runner - WARNING - FAILED: python scan failed
+2025-08-26 08:28:00,891 - sast_runner - INFO - Running Semgrep with config: p/generic
+2025-08-26 08:28:08,284 - sast_runner - WARNING - Semgrep failed with return code 7
+2025-08-26 08:28:08,284 - sast_runner - DEBUG - Semgrep stderr: [00.09][WARNING](ca-certs): Ignored 1 trust anchors.
+
+2025-08-26 08:28:08,284 - sast_runner - WARNING - FAILED: generic scan failed
+2025-08-26 08:28:08,284 - sast_runner - INFO - Running Semgrep with config: p/command-injection
+2025-08-26 08:28:10,529 - root - INFO - Analysis cancelled by user
+2025-08-26 08:28:10,530 - orchestrator - INFO - Enhanced cleanup completed

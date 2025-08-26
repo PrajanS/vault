@@ -1,0 +1,9 @@
+File,Module,Purpose,Lines,Status
+requirements.txt,Dependencies,Python package dependencies,23,Complete
+pyproject.toml,Project Config,Modern Python project configuration,38,Complete
+Dockerfile,Container,Docker container configuration,35,Complete
+main.py,Entry Point,Main application entry point,15,Complete
+src/cli.py,CLI Interface,Command line interface with Click,103,Complete
+src/utils.py,Utilities,Common utility functions and helpers,211,Complete
+src/pdf_parser.py,PDF Processing,Extract text and business logic from PDFs,249,Complete
+src/code_analyzer.py,Code Analysis,Discover endpoints in source code,394,Complete

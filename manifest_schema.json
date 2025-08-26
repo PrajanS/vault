@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "analysis_date": "<YYYY-MM-DD>",
+    "sources_used": {
+      "pdf_present": true,
+      "code_snippets_count": 3,
+      "sast_findings_present": true
+    },
+    "assumptions": []
+  },
+  "app_summary": {
+    "name": "unknown",
+    "purpose": "short summary",
+    "major_features": [],
+    "critical_business_rules": [
+      {
+        "id": "BR1",
+        "description": "...",
+        "source": "pdf|code"
+      }
+    ]
+  },
+  "endpoints": [
+    {
+      "id": "E1",
+      "path": "/api/v1/login",
+      "method": "POST",
+      "language_hint": "node",
+      "file": "src/...",
+      "line": 123,
+      "params": [
+        {
+          "name": "username"
+        }
+      ],
+      "auth_required": "yes"
+    }
+  ],
+  "sast_vulnerabilities": [
+    {
+      "id": "V1",
+      "title": "SQL Injection",
+      "owasp_category": "A03",
+      "severity": "High",
+      "location": "file:line"
+    }
+  ],
+  "test_cases": [
+    {
+      "id": "T1",
+      "title": "SQL Injection on login",
+      "type": "standard",
+      "mapped_endpoints": [
+        "E1"
+      ],
+      "steps": [
+        "..."
+      ],
+      "expected_result": "..."
+    }
+  ],
+  "coverage_matrix": {
+    "total_endpoints": 0,
+    "endpoints_with_tests": 0,
+    "endpoint_coverage_pct": 0.0,
+    "owasp_categories_covered": [],
+    "owasp_coverage_pct": 0.0,
+    "gaps": []
+  }
+}

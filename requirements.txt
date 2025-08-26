@@ -1,0 +1,46 @@
+# Core dependencies
+PyMuPDF>=1.23.0
+pdfplumber>=0.9.0
+requests>=2.31.0
+argparse>=1.4.0
+
+# Optional dependencies for enhanced functionality
+python-dotenv>=1.0.0
+semgrep>=1.45.0
+
+# Enhanced dynamic analysis dependencies
+urllib3>=2.0.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# Enhanced static analysis
+typing-extensions>=4.7.0
+pathlib>=1.0.1
+
+# Enhanced export capabilities
+openpyxl>=3.1.0
+xlsxwriter>=3.1.0
+
+# Web scraping and dynamic analysis
+selenium>=4.15.0
+aiohttp>=3.8.0
+
+# Enhanced text processing
+nltk>=3.8.0
+textblob>=0.17.0
+
+# Enhanced security analysis
+cryptography>=41.0.0
+paramiko>=3.3.0
+
+# Data analysis and visualization
+pandas>=2.1.0
+numpy>=1.24.0
+
+# Enhanced logging and monitoring
+colorlog>=6.7.0
+tqdm>=4.66.0
+
+# Performance optimization
+psutil>=5.9.0
+multiprocessing-logging>=0.3.4

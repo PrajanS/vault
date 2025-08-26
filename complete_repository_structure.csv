@@ -1,0 +1,41 @@
+Path,Type,Purpose,Lines,Status
+main.py,Python,Main entry point,15,Complete
+src/__init__.py,Python,Package initialization,1,Complete
+src/cli.py,Python,Command line interface with Click,103,Complete
+src/utils.py,Python,Utility functions and helpers,211,Complete
+src/pdf_parser.py,Python,PDF text extraction and analysis,249,Complete
+src/code_analyzer.py,Python,Multi-language endpoint discovery,394,Complete
+src/sast_runner.py,Python,Semgrep integration and SAST analysis,320,Complete
+src/llm_client.py,Python,Gemini 2.5 Pro API client,285,Complete
+src/orchestrator.py,Python,Main pipeline coordinator,420,Complete
+src/test_generator.py,Python,LLM-powered test case generation,380,Complete
+src/exporter.py,Python,PowerBI CSV and Excel export,410,Complete
+requirements.txt,Config,Python dependencies,23,Complete
+pyproject.toml,Config,Modern Python project config,38,Complete
+Dockerfile,Docker,Container configuration,35,Complete
+configs/logging_config.yaml,Config,Logging configuration,25,Complete
+configs/semgrep_rules.yaml,Config,Custom Semgrep security rules,20,Complete
+README.md,Docs,Comprehensive project documentation,650,Complete
+docs/powerbi_instructions.md,Docs,PowerBI dashboard setup guide,420,Complete
+docs/quick_hackathon_mode.md,Docs,6-hour hackathon implementation guide,280,Complete
+docs/schema_definitions.md,Docs,JSON schema definitions,100,Placeholder
+examples/sample_report.txt,Example,Sample PDF content for testing,95,Complete
+examples/code/app.js,Example,Express.js with security vulnerabilities,85,Complete
+examples/code/api.py,Example,Flask API with security issues,120,Complete
+examples/code/routes.py,Example,Django URL patterns example,30,Placeholder
+examples/code/UserController.java,Example,Spring Boot controller with vulnerabilities,95,Complete
+examples/outputs/manifest.json,Example,Sample pipeline output manifest,150,Complete
+examples/outputs/endpoints.csv,Example,Sample endpoints CSV for PowerBI,4,Complete
+examples/outputs/vulnerabilities.csv,Example,Sample vulnerabilities CSV,4,Complete
+examples/outputs/tests.csv,Example,Sample test cases CSV,4,Complete
+examples/outputs/coverage.csv,Example,Sample coverage metrics CSV,10,Complete
+scripts/setup.sh,Script,Environment setup automation,60,Complete
+scripts/run_example.sh,Script,Example execution script,45,Complete
+scripts/install_semgrep.sh,Script,Semgrep installation with fallbacks,40,Complete
+tests/__init__.py,Test,Test package init,1,Placeholder
+tests/test_pdf_parser.py,Test,PDF parser unit tests,50,Placeholder
+tests/test_code_analyzer.py,Test,Code analyzer unit tests,80,Placeholder
+tests/test_integration.py,Test,End-to-end integration tests,100,Placeholder
+logs/prompts/,Directory,LLM prompts storage,0,Directory
+logs/llm_responses/,Directory,LLM responses storage,0,Directory
+outputs/,Directory,Pipeline output directory,0,Directory
