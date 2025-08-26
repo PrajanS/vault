@@ -1,0 +1,178 @@
+id,title,type,category,owasp_category,severity,mapped_endpoints,step_count,expected_result,generated_by
+T001,Test SQL injection in database queries,standard,security,A03,Critical,E003; E004; E005; E009; E010; E011,7,"Application should reject malicious input, use parameterized queries, and implement proper input validation without exposing database errors",template
+T002,"Test NoSQL injection (MongoDB, CouchDB)",standard,security,A03,Critical,E003; E004; E005; E009; E010; E011,7,"Application should reject malicious input, use parameterized queries, and implement proper input validation without exposing database errors",template
+T003,Test LDAP injection vulnerabilities,standard,security,A03,Critical,E003; E004; E005; E009; E010; E011,7,"Application should reject malicious input, use parameterized queries, and implement proper input validation without exposing database errors",template
+T004,Test OS command injection,standard,security,A03,Critical,E003; E004; E005; E009; E010; E011,7,"Application should reject malicious input, use parameterized queries, and implement proper input validation without exposing database errors",template
+T005,Test XSS (Cross-Site Scripting) - reflected,standard,security,A03,Critical,E003; E004; E005; E009; E010; E011,7,"Application should encode all output, implement Content Security Policy (CSP), and prevent script execution from user input",template
+T006,Test XSS (Cross-Site Scripting) - stored,standard,security,A03,Critical,E003; E004; E005; E009; E010; E011,7,"Application should encode all output, implement Content Security Policy (CSP), and prevent script execution from user input",template
+T007,Test XSS (Cross-Site Scripting) - DOM-based,standard,security,A03,Critical,E003; E004; E005; E009; E010; E011,7,"Application should encode all output, implement Content Security Policy (CSP), and prevent script execution from user input",template
+T008,Test XXE (XML External Entity) injection,standard,security,A03,Critical,E003; E004; E005; E009; E010; E011,7,"Application should reject malicious input, use parameterized queries, and implement proper input validation without exposing database errors",template
+T009,Test SSTI (Server-Side Template Injection),standard,security,A03,Critical,E003; E004; E005; E009; E010; E011,7,"Application should reject malicious input, use parameterized queries, and implement proper input validation without exposing database errors",template
+T010,Test CRLF injection and HTTP response splitting,standard,security,A03,Critical,E003; E004; E005; E009; E010; E011,7,"Application should reject malicious input, use parameterized queries, and implement proper input validation without exposing database errors",template
+T011,Test XPath injection vulnerabilities,standard,security,A03,Critical,E003; E004; E005; E009; E010; E011,7,"Application should reject malicious input, use parameterized queries, and implement proper input validation without exposing database errors",template
+T012,Test expression language injection,standard,security,A03,Critical,E003; E004; E005; E009; E010; E011,7,"Application should reject malicious input, use parameterized queries, and implement proper input validation without exposing database errors",template
+T013,Test code injection through eval() functions,standard,security,A03,Critical,E003; E004; E005; E009; E010; E011,7,"Application should reject malicious input, use parameterized queries, and implement proper input validation without exposing database errors",template
+T014,Test header injection attacks,standard,security,A03,Critical,E003; E004; E005; E009; E010; E011,7,"Application should reject malicious input, use parameterized queries, and implement proper input validation without exposing database errors",template
+T015,Test email injection vulnerabilities,standard,security,A03,Critical,E003; E004; E005; E009; E010; E011,7,"Application should reject malicious input, use parameterized queries, and implement proper input validation without exposing database errors",template
+T148,Verify Template Literal - Check for Injection in Cart.jsx,vulnerability_specific,security,A03,Medium,,5,Vulnerability should be properly identified and/or mitigated,template
+T149,Test exploitation of Template Literal - Check for Injection,vulnerability_specific,security,A03,Medium,,5,Vulnerability should be properly identified and/or mitigated,template
+T150,Test remediation bypass for Template Literal - Check for Injection,vulnerability_specific,security,A03,Medium,,5,Vulnerability should be properly identified and/or mitigated,template
+T151,Test impact assessment of Template Literal - Check for Injection,vulnerability_specific,security,A03,Medium,,5,Vulnerability should be properly identified and/or mitigated,template
+T156,Verify Template Literal - Check for Injection in FooterBanner.jsx,vulnerability_specific,security,A03,Medium,,5,Vulnerability should be properly identified and/or mitigated,template
+T160,Verify Template Literal - Check for Injection in HeroBanner.jsx,vulnerability_specific,security,A03,Medium,,5,Vulnerability should be properly identified and/or mitigated,template
+T164,Verify Template Literal - Check for Injection in Product.jsx,vulnerability_specific,security,A03,Medium,,5,Vulnerability should be properly identified and/or mitigated,template
+T172,Verify Template Literal - Check for Injection in StateContext.js,vulnerability_specific,security,A03,Medium,,5,Vulnerability should be properly identified and/or mitigated,template
+T176,Verify Template Literal - Check for Injection in stripe.js,vulnerability_specific,security,A03,Medium,,5,Vulnerability should be properly identified and/or mitigated,template
+T184,Verify Template Literal - Check for Injection in [slug].js,vulnerability_specific,security,A03,Medium,,5,Vulnerability should be properly identified and/or mitigated,template
+T036,Test GET /api/stripe with invalid authentication,endpoint_specific,security,,Medium,E001,5,Endpoint should handle test case securely,template
+T037,Test GET /api/stripe with malformed parameters,endpoint_specific,security,,Medium,E001,5,Endpoint should handle test case securely,template
+T038,Test GET /api/stripe with oversized payloads,endpoint_specific,security,,Medium,E001,5,Endpoint should handle test case securely,template
+T039,Test GET /api/stripe with SQL injection payloads,endpoint_specific,security,,Medium,E001,5,Endpoint should handle test case securely,template
+T040,Test GET /api/stripe with XSS payloads,endpoint_specific,security,,Medium,E001,5,Endpoint should handle test case securely,template
+T041,Test GET /api/stripe rate limiting,endpoint_specific,security,,Medium,E001,5,Endpoint should handle test case securely,template
+T042,Test GET /api/stripe error handling,endpoint_specific,security,,Medium,E001,5,Endpoint should handle test case securely,template
+T043,Test GET /api/stripe with null/empty values,endpoint_specific,security,,Medium,E001,5,Endpoint should handle test case securely,template
+T044,Test GET /api/hello with invalid authentication,endpoint_specific,security,,Medium,E002,5,Endpoint should handle test case securely,template
+T045,Test GET /api/hello with malformed parameters,endpoint_specific,security,,Medium,E002,5,Endpoint should handle test case securely,template
+T046,Test GET /api/hello with oversized payloads,endpoint_specific,security,,Medium,E002,5,Endpoint should handle test case securely,template
+T047,Test GET /api/hello with SQL injection payloads,endpoint_specific,security,,Medium,E002,5,Endpoint should handle test case securely,template
+T048,Test GET /api/hello with XSS payloads,endpoint_specific,security,,Medium,E002,5,Endpoint should handle test case securely,template
+T049,Test GET /api/hello rate limiting,endpoint_specific,security,,Medium,E002,5,Endpoint should handle test case securely,template
+T050,Test GET /api/hello error handling,endpoint_specific,security,,Medium,E002,5,Endpoint should handle test case securely,template
+T051,Test GET /api/hello with null/empty values,endpoint_specific,security,,Medium,E002,5,Endpoint should handle test case securely,template
+T052,Test POST /api/auth/login with invalid authentication,endpoint_specific,security,,Medium,E003,5,Endpoint should handle test case securely,template
+T053,Test POST /api/auth/login with malformed parameters,endpoint_specific,security,,Medium,E003,5,Endpoint should handle test case securely,template
+T054,Test POST /api/auth/login with oversized payloads,endpoint_specific,security,,Medium,E003,5,Endpoint should handle test case securely,template
+T055,Test POST /api/auth/login with SQL injection payloads,endpoint_specific,security,,Medium,E003,5,Endpoint should handle test case securely,template
+T056,Test POST /api/auth/login with XSS payloads,endpoint_specific,security,,Medium,E003,5,Endpoint should handle test case securely,template
+T057,Test POST /api/auth/login rate limiting,endpoint_specific,security,,Medium,E003,5,Endpoint should handle test case securely,template
+T058,Test POST /api/auth/login error handling,endpoint_specific,security,,Medium,E003,5,Endpoint should handle test case securely,template
+T059,Test POST /api/auth/login with null/empty values,endpoint_specific,security,,Medium,E003,5,Endpoint should handle test case securely,template
+T060,Test POST /api/auth/register with invalid authentication,endpoint_specific,security,,Medium,E004,5,Endpoint should handle test case securely,template
+T061,Test POST /api/auth/register with malformed parameters,endpoint_specific,security,,Medium,E004,5,Endpoint should handle test case securely,template
+T062,Test POST /api/auth/register with oversized payloads,endpoint_specific,security,,Medium,E004,5,Endpoint should handle test case securely,template
+T063,Test POST /api/auth/register with SQL injection payloads,endpoint_specific,security,,Medium,E004,5,Endpoint should handle test case securely,template
+T064,Test POST /api/auth/register with XSS payloads,endpoint_specific,security,,Medium,E004,5,Endpoint should handle test case securely,template
+T065,Test POST /api/auth/register rate limiting,endpoint_specific,security,,Medium,E004,5,Endpoint should handle test case securely,template
+T066,Test POST /api/auth/register error handling,endpoint_specific,security,,Medium,E004,5,Endpoint should handle test case securely,template
+T067,Test POST /api/auth/register with null/empty values,endpoint_specific,security,,Medium,E004,5,Endpoint should handle test case securely,template
+T068,Test POST /api/auth/logout with invalid authentication,endpoint_specific,security,,Medium,E005,5,Endpoint should handle test case securely,template
+T069,Test POST /api/auth/logout with malformed parameters,endpoint_specific,security,,Medium,E005,5,Endpoint should handle test case securely,template
+T070,Test POST /api/auth/logout with oversized payloads,endpoint_specific,security,,Medium,E005,5,Endpoint should handle test case securely,template
+T071,Test POST /api/auth/logout with SQL injection payloads,endpoint_specific,security,,Medium,E005,5,Endpoint should handle test case securely,template
+T072,Test POST /api/auth/logout with XSS payloads,endpoint_specific,security,,Medium,E005,5,Endpoint should handle test case securely,template
+T073,Test POST /api/auth/logout rate limiting,endpoint_specific,security,,Medium,E005,5,Endpoint should handle test case securely,template
+T074,Test POST /api/auth/logout error handling,endpoint_specific,security,,Medium,E005,5,Endpoint should handle test case securely,template
+T075,Test POST /api/auth/logout with null/empty values,endpoint_specific,security,,Medium,E005,5,Endpoint should handle test case securely,template
+T076,Test GET /api/products with invalid authentication,endpoint_specific,security,,Medium,E006,5,Endpoint should handle test case securely,template
+T077,Test GET /api/products with malformed parameters,endpoint_specific,security,,Medium,E006,5,Endpoint should handle test case securely,template
+T078,Test GET /api/products with oversized payloads,endpoint_specific,security,,Medium,E006,5,Endpoint should handle test case securely,template
+T079,Test GET /api/products with SQL injection payloads,endpoint_specific,security,,Medium,E006,5,Endpoint should handle test case securely,template
+T080,Test GET /api/products with XSS payloads,endpoint_specific,security,,Medium,E006,5,Endpoint should handle test case securely,template
+T081,Test GET /api/products rate limiting,endpoint_specific,security,,Medium,E006,5,Endpoint should handle test case securely,template
+T082,Test GET /api/products error handling,endpoint_specific,security,,Medium,E006,5,Endpoint should handle test case securely,template
+T083,Test GET /api/products with null/empty values,endpoint_specific,security,,Medium,E006,5,Endpoint should handle test case securely,template
+T084,Test GET /api/products/search with invalid authentication,endpoint_specific,security,,Medium,E007,5,Endpoint should handle test case securely,template
+T085,Test GET /api/products/search with malformed parameters,endpoint_specific,security,,Medium,E007,5,Endpoint should handle test case securely,template
+T086,Test GET /api/products/search with oversized payloads,endpoint_specific,security,,Medium,E007,5,Endpoint should handle test case securely,template
+T087,Test GET /api/products/search with SQL injection payloads,endpoint_specific,security,,Medium,E007,5,Endpoint should handle test case securely,template
+T088,Test GET /api/products/search with XSS payloads,endpoint_specific,security,,Medium,E007,5,Endpoint should handle test case securely,template
+T089,Test GET /api/products/search rate limiting,endpoint_specific,security,,Medium,E007,5,Endpoint should handle test case securely,template
+T090,Test GET /api/products/search error handling,endpoint_specific,security,,Medium,E007,5,Endpoint should handle test case securely,template
+T091,Test GET /api/products/search with null/empty values,endpoint_specific,security,,Medium,E007,5,Endpoint should handle test case securely,template
+T092,Test GET /api/cart with invalid authentication,endpoint_specific,security,,Medium,E008,5,Endpoint should handle test case securely,template
+T093,Test GET /api/cart with malformed parameters,endpoint_specific,security,,Medium,E008,5,Endpoint should handle test case securely,template
+T094,Test GET /api/cart with oversized payloads,endpoint_specific,security,,Medium,E008,5,Endpoint should handle test case securely,template
+T095,Test GET /api/cart with SQL injection payloads,endpoint_specific,security,,Medium,E008,5,Endpoint should handle test case securely,template
+T096,Test GET /api/cart with XSS payloads,endpoint_specific,security,,Medium,E008,5,Endpoint should handle test case securely,template
+T097,Test GET /api/cart rate limiting,endpoint_specific,security,,Medium,E008,5,Endpoint should handle test case securely,template
+T098,Test GET /api/cart error handling,endpoint_specific,security,,Medium,E008,5,Endpoint should handle test case securely,template
+T099,Test GET /api/cart with null/empty values,endpoint_specific,security,,Medium,E008,5,Endpoint should handle test case securely,template
+T100,Test POST /api/cart/add with invalid authentication,endpoint_specific,security,,Medium,E009,5,Endpoint should handle test case securely,template
+T101,Test POST /api/cart/add with malformed parameters,endpoint_specific,security,,Medium,E009,5,Endpoint should handle test case securely,template
+T102,Test POST /api/cart/add with oversized payloads,endpoint_specific,security,,Medium,E009,5,Endpoint should handle test case securely,template
+T103,Test POST /api/cart/add with SQL injection payloads,endpoint_specific,security,,Medium,E009,5,Endpoint should handle test case securely,template
+T104,Test POST /api/cart/add with XSS payloads,endpoint_specific,security,,Medium,E009,5,Endpoint should handle test case securely,template
+T105,Test POST /api/cart/add rate limiting,endpoint_specific,security,,Medium,E009,5,Endpoint should handle test case securely,template
+T106,Test POST /api/cart/add error handling,endpoint_specific,security,,Medium,E009,5,Endpoint should handle test case securely,template
+T107,Test POST /api/cart/add with null/empty values,endpoint_specific,security,,Medium,E009,5,Endpoint should handle test case securely,template
+T108,Test POST /api/orders with invalid authentication,endpoint_specific,security,,Medium,E010,5,Endpoint should handle test case securely,template
+T109,Test POST /api/orders with malformed parameters,endpoint_specific,security,,Medium,E010,5,Endpoint should handle test case securely,template
+T110,Test POST /api/orders with oversized payloads,endpoint_specific,security,,Medium,E010,5,Endpoint should handle test case securely,template
+T111,Test POST /api/orders with SQL injection payloads,endpoint_specific,security,,Medium,E010,5,Endpoint should handle test case securely,template
+T112,Test POST /api/orders with XSS payloads,endpoint_specific,security,,Medium,E010,5,Endpoint should handle test case securely,template
+T113,Test POST /api/orders rate limiting,endpoint_specific,security,,Medium,E010,5,Endpoint should handle test case securely,template
+T114,Test POST /api/orders error handling,endpoint_specific,security,,Medium,E010,5,Endpoint should handle test case securely,template
+T115,Test POST /api/orders with null/empty values,endpoint_specific,security,,Medium,E010,5,Endpoint should handle test case securely,template
+T116,Test POST /api/payment/process with invalid authentication,endpoint_specific,security,,Medium,E011,5,Endpoint should handle test case securely,template
+T117,Test POST /api/payment/process with malformed parameters,endpoint_specific,security,,Medium,E011,5,Endpoint should handle test case securely,template
+T118,Test POST /api/payment/process with oversized payloads,endpoint_specific,security,,Medium,E011,5,Endpoint should handle test case securely,template
+T119,Test POST /api/payment/process with SQL injection payloads,endpoint_specific,security,,Medium,E011,5,Endpoint should handle test case securely,template
+T120,Test POST /api/payment/process with XSS payloads,endpoint_specific,security,,Medium,E011,5,Endpoint should handle test case securely,template
+T121,Test POST /api/payment/process rate limiting,endpoint_specific,security,,Medium,E011,5,Endpoint should handle test case securely,template
+T122,Test POST /api/payment/process error handling,endpoint_specific,security,,Medium,E011,5,Endpoint should handle test case securely,template
+T123,Test POST /api/payment/process with null/empty values,endpoint_specific,security,,Medium,E011,5,Endpoint should handle test case securely,template
+T124,Test GET /api/user/profile with invalid authentication,endpoint_specific,security,,Medium,E012,5,Endpoint should handle test case securely,template
+T125,Test GET /api/user/profile with malformed parameters,endpoint_specific,security,,Medium,E012,5,Endpoint should handle test case securely,template
+T126,Test GET /api/user/profile with oversized payloads,endpoint_specific,security,,Medium,E012,5,Endpoint should handle test case securely,template
+T127,Test GET /api/user/profile with SQL injection payloads,endpoint_specific,security,,Medium,E012,5,Endpoint should handle test case securely,template
+T128,Test GET /api/user/profile with XSS payloads,endpoint_specific,security,,Medium,E012,5,Endpoint should handle test case securely,template
+T129,Test GET /api/user/profile rate limiting,endpoint_specific,security,,Medium,E012,5,Endpoint should handle test case securely,template
+T130,Test GET /api/user/profile error handling,endpoint_specific,security,,Medium,E012,5,Endpoint should handle test case securely,template
+T131,Test GET /api/user/profile with null/empty values,endpoint_specific,security,,Medium,E012,5,Endpoint should handle test case securely,template
+T132,Test GET /admin/dashboard with invalid authentication,endpoint_specific,security,,Medium,E013,5,Endpoint should handle test case securely,template
+T133,Test GET /admin/dashboard with malformed parameters,endpoint_specific,security,,Medium,E013,5,Endpoint should handle test case securely,template
+T134,Test GET /admin/dashboard with oversized payloads,endpoint_specific,security,,Medium,E013,5,Endpoint should handle test case securely,template
+T135,Test GET /admin/dashboard with SQL injection payloads,endpoint_specific,security,,Medium,E013,5,Endpoint should handle test case securely,template
+T136,Test GET /admin/dashboard with XSS payloads,endpoint_specific,security,,Medium,E013,5,Endpoint should handle test case securely,template
+T137,Test GET /admin/dashboard rate limiting,endpoint_specific,security,,Medium,E013,5,Endpoint should handle test case securely,template
+T138,Test GET /admin/dashboard error handling,endpoint_specific,security,,Medium,E013,5,Endpoint should handle test case securely,template
+T139,Test GET /admin/dashboard with null/empty values,endpoint_specific,security,,Medium,E013,5,Endpoint should handle test case securely,template
+T140,Test GET /admin/products with invalid authentication,endpoint_specific,security,,Medium,E014,5,Endpoint should handle test case securely,template
+T141,Test GET /admin/products with malformed parameters,endpoint_specific,security,,Medium,E014,5,Endpoint should handle test case securely,template
+T142,Test GET /admin/products with oversized payloads,endpoint_specific,security,,Medium,E014,5,Endpoint should handle test case securely,template
+T143,Test GET /admin/products with SQL injection payloads,endpoint_specific,security,,Medium,E014,5,Endpoint should handle test case securely,template
+T144,Test GET /admin/products with XSS payloads,endpoint_specific,security,,Medium,E014,5,Endpoint should handle test case securely,template
+T145,Test GET /admin/products rate limiting,endpoint_specific,security,,Medium,E014,5,Endpoint should handle test case securely,template
+T146,Test GET /admin/products error handling,endpoint_specific,security,,Medium,E014,5,Endpoint should handle test case securely,template
+T147,Test GET /admin/products with null/empty values,endpoint_specific,security,,Medium,E014,5,Endpoint should handle test case securely,template
+T192,Test positive validation of BR001,business_rule,business_logic,,Medium,E003; E004; E005; E012,5,Business rule BR001 should be properly enforced,template
+T193,Test negative validation of BR001,business_rule,business_logic,,Medium,E003; E004; E005; E012,5,Business rule BR001 should be properly enforced,template
+T194,Test boundary conditions for BR001,business_rule,business_logic,,Medium,E003; E004; E005; E012,5,Business rule BR001 should be properly enforced,template
+T195,Test bypass attempts for BR001,business_rule,business_logic,,Medium,E003; E004; E005; E012,5,Business rule BR001 should be properly enforced,template
+T196,Test error handling for BR001 violations,business_rule,business_logic,,Medium,E003; E004; E005; E012,5,Business rule BR001 should be properly enforced,template
+T197,Test positive validation of BR002,business_rule,business_logic,,Medium,E011,5,Business rule BR002 should be properly enforced,template
+T198,Test negative validation of BR002,business_rule,business_logic,,Medium,E011,5,Business rule BR002 should be properly enforced,template
+T199,Test boundary conditions for BR002,business_rule,business_logic,,Medium,E011,5,Business rule BR002 should be properly enforced,template
+T200,Test bypass attempts for BR002,business_rule,business_logic,,Medium,E011,5,Business rule BR002 should be properly enforced,template
+T201,Test error handling for BR002 violations,business_rule,business_logic,,Medium,E011,5,Business rule BR002 should be properly enforced,template
+T202,Test positive validation of BR003,business_rule,business_logic,,Medium,E010,5,Business rule BR003 should be properly enforced,template
+T203,Test negative validation of BR003,business_rule,business_logic,,Medium,E010,5,Business rule BR003 should be properly enforced,template
+T204,Test boundary conditions for BR003,business_rule,business_logic,,Medium,E010,5,Business rule BR003 should be properly enforced,template
+T205,Test bypass attempts for BR003,business_rule,business_logic,,Medium,E010,5,Business rule BR003 should be properly enforced,template
+T206,Test error handling for BR003 violations,business_rule,business_logic,,Medium,E010,5,Business rule BR003 should be properly enforced,template
+T207,Test positive validation of BR004,business_rule,business_logic,,Medium,E012,5,Business rule BR004 should be properly enforced,template
+T208,Test negative validation of BR004,business_rule,business_logic,,Medium,E012,5,Business rule BR004 should be properly enforced,template
+T209,Test boundary conditions for BR004,business_rule,business_logic,,Medium,E012,5,Business rule BR004 should be properly enforced,template
+T210,Test bypass attempts for BR004,business_rule,business_logic,,Medium,E012,5,Business rule BR004 should be properly enforced,template
+T211,Test error handling for BR004 violations,business_rule,business_logic,,Medium,E012,5,Business rule BR004 should be properly enforced,template
+T016,Test input length validation bypass,additional,security,,Medium,E003; E004; E005,7,Application should be secure against Input_Validation vulnerabilities with proper security controls implemented,template
+T017,Test special character handling,additional,security,,Medium,E003; E004; E005,7,Application should be secure against Input_Validation vulnerabilities with proper security controls implemented,template
+T018,Test Unicode and encoding attacks,additional,security,,Medium,E003; E004; E005,7,Application should be secure against Input_Validation vulnerabilities with proper security controls implemented,template
+T019,Test file upload restrictions bypass,additional,security,,Medium,E003; E004; E005,7,Application should be secure against Input_Validation vulnerabilities with proper security controls implemented,template
+T020,Test content type validation,additional,security,,Medium,E003; E004; E005,7,Application should be secure against Input_Validation vulnerabilities with proper security controls implemented,template
+T021,Test malformed data handling,additional,security,,Medium,E003; E004; E005,7,Application should be secure against Input_Validation vulnerabilities with proper security controls implemented,template
+T022,Test session timeout enforcement,additional,security,,Medium,E003; E004; E005,7,Application should be secure against Session_Management vulnerabilities with proper security controls implemented,template
+T023,Test concurrent session limits,additional,security,,Medium,E003; E004; E005,7,Application should be secure against Session_Management vulnerabilities with proper security controls implemented,template
+T024,Test session token entropy,additional,security,,Medium,E003; E004; E005,7,Application should be secure against Session_Management vulnerabilities with proper security controls implemented,template
+T025,Test session hijacking protection,additional,security,,Medium,E003; E004; E005,7,Application should be secure against Session_Management vulnerabilities with proper security controls implemented,template
+T026,Test logout functionality completeness,additional,security,,Medium,E003; E004; E005,7,Application should be secure against Session_Management vulnerabilities with proper security controls implemented,template
+T027,Test error message information disclosure,additional,security,,Medium,E003; E004; E005,7,Application should be secure against Error_Handling vulnerabilities with proper security controls implemented,template
+T028,Test stack trace exposure,additional,security,,Medium,E003; E004; E005,7,Application should be secure against Error_Handling vulnerabilities with proper security controls implemented,template
+T029,Test database error leakage,additional,security,,Medium,E003; E004; E005,7,Application should be secure against Error_Handling vulnerabilities with proper security controls implemented,template
+T030,Test application crash scenarios,additional,security,,Medium,E003; E004; E005,7,Application should be secure against Error_Handling vulnerabilities with proper security controls implemented,template
+T031,Test REST API rate limiting,additional,security,,Medium,E001; E002; E003,7,Application should be secure against API_Security vulnerabilities with proper security controls implemented,template
+T032,Test GraphQL query depth limits,additional,security,,Medium,E001; E002; E003,7,Application should be secure against API_Security vulnerabilities with proper security controls implemented,template
+T033,Test API versioning security,additional,security,,Medium,E001; E002; E003,7,Application should be secure against API_Security vulnerabilities with proper security controls implemented,template
+T034,Test API key management,additional,security,,Medium,E001; E002; E003,7,Application should be secure against API_Security vulnerabilities with proper security controls implemented,template
+T035,Test JSON/XML bombing attacks,additional,security,,Medium,E001; E002; E003,7,Application should be secure against API_Security vulnerabilities with proper security controls implemented,template

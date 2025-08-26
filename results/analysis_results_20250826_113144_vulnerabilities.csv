@@ -1,0 +1,12 @@
+id,title,severity,owasp_category,cwe_id,location,file,line_start,confidence,description
+PATTERN_001,Template Literal - Check for Injection,Medium,A03,,,Cart.jsx,70,MEDIUM,Detected security pattern in code
+PATTERN_002,Template Literal - Check for Injection,Medium,A03,,,Cart.jsx,98,MEDIUM,Detected security pattern in code
+PATTERN_001,Template Literal - Check for Injection,Medium,A03,,,FooterBanner.jsx,20,MEDIUM,Detected security pattern in code
+PATTERN_001,Template Literal - Check for Injection,Medium,A03,,,HeroBanner.jsx,16,MEDIUM,Detected security pattern in code
+PATTERN_001,Template Literal - Check for Injection,Medium,A03,,,Product.jsx,9,MEDIUM,Detected security pattern in code
+PATTERN_002,Template Literal - Check for Injection,Medium,A03,,,Product.jsx,18,MEDIUM,Detected security pattern in code
+PATTERN_001,Template Literal - Check for Injection,Medium,A03,,,StateContext.js,37,MEDIUM,Detected security pattern in code
+PATTERN_001,Template Literal - Check for Injection,Medium,A03,,,stripe.js,36,MEDIUM,Detected security pattern in code
+PATTERN_002,Template Literal - Check for Injection,Medium,A03,,,stripe.js,37,MEDIUM,Detected security pattern in code
+PATTERN_001,Template Literal - Check for Injection,Medium,A03,,,[slug].js,54,MEDIUM,Detected security pattern in code
+PATTERN_002,Template Literal - Check for Injection,Medium,A03,,,[slug].js,107,MEDIUM,Detected security pattern in code

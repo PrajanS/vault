@@ -1,0 +1,7 @@
+metric,value,percentage,details
+Endpoint Coverage,14/14,100.0%,Endpoints with test cases
+OWASP Coverage,1/10,10.0%,A03
+Total Test Cases,177,100%,All generated test cases
+Security Tests,157,88.7%,OWASP and security-focused tests
+Business Logic Tests,20,11.3%,Business rule validation tests
+Coverage Gaps,1,N/A,"Missing OWASP categories: A01, A02, A04, A05, A06, A07, A08, A09, A10"

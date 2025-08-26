@@ -1,0 +1,17 @@
+{
+  "export_timestamp": "2025-08-26T11:31:44.523391",
+  "exported_files": {
+    "manifest": "results\\analysis_results_20250826_113144_manifest.json",
+    "endpoints": "results\\analysis_results_20250826_113144_endpoints.csv",
+    "vulnerabilities": "results\\analysis_results_20250826_113144_vulnerabilities.csv",
+    "test_cases": "results\\analysis_results_20250826_113144_test_cases.csv",
+    "coverage": "results\\analysis_results_20250826_113144_coverage.csv",
+    "summary": "results\\analysis_results_20250826_113144_summary.md"
+  },
+  "file_count": 6,
+  "formats": [
+    "json",
+    "markdown",
+    "csv"
+  ]
+}

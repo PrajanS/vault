@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Security Analysis Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .upload-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            background: #f8f9ff;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .upload-area:hover {
+            border-color: #764ba2;
+            background: #f0f2ff;
+        }
+
+        .upload-area.dragover {
+            border-color: #4CAF50;
+            background: #f0fff0;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .upload-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .analyze-btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .analyze-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .analyze-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .file-list {
+            margin-top: 20px;
+        }
+
+        .file-item {
+            background: #f0f2ff;
+            padding: 10px 15px;
+            margin: 5px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .file-type-badge {
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .file-type-report {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .file-type-code {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        .results-section {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 30px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .results-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .results-content {
+            padding: 0;
+        }
+
+        .tabs {
+            display: flex;
+            background: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            background: #f5f5f5;
+            border: none;
+            transition: background 0.3s;
+        }
+
+        .tab.active {
+            background: white;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .tab-content {
+            padding: 20px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .summary-card {
+            background: linear-gradient(45deg, #f0f2ff, #fff);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+
+        .summary-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .summary-card .value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover {
+            background: #f8f9ff;
+        }
+
+        .severity-critical {
+            background: #ffebee !important;
+            color: #c62828;
+            font-weight: bold;
+        }
+
+        .severity-high {
+            background: #fff3e0 !important;
+            color: #ef6c00;
+            font-weight: bold;
+        }
+
+        .severity-medium {
+            background: #f3e5f5 !important;
+            color: #7b1fa2;
+        }
+
+        .severity-low {
+            background: #e8f5e8 !important;
+            color: #2e7d32;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #f44336;
+        }
+
+        .success {
+            background: #e8f5e8;
+            color: #2e7d32;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .download-btn {
+            background: linear-gradient(45deg, #2196f3, #21cbf3);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+            font-size: 12px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .upload-section {
+                padding: 20px;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ AI Security Analysis Tool</h1>
+            <p>Upload your code or documentation for comprehensive security analysis</p>
+        </div>
+
+        <div class="upload-section">
+            <form id="analysisForm" enctype="multipart/form-data">
+                <div class="upload-area" id="uploadArea">
+                    <p>📁 Drop files here or click to select</p>
+                    <p style="margin: 10px 0; color: #666;">
+                        <strong>Supported formats:</strong><br>
+                        📋 Reports: PDF, Markdown (.pdf, .md)<br>
+                        💻 Code: ZIP, RAR, TAR archives (.zip, .rar, .tar.gz)
+                    </p>
+                    <button type="button" class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                        Choose Files
+                    </button>
+                    <input type="file" id="fileInput" name="files" multiple class="file-input" 
+                           accept=".zip,.rar,.tar,.tar.gz,.tgz,.pdf,.md,.txt">
+                </div>
+
+                <div id="fileList" class="file-list"></div>
+
+                <button type="submit" class="analyze-btn" id="analyzeBtn" disabled>
+                    🔍 Start Security Analysis
+                </button>
+            </form>
+        </div>
+
+        <div class="loading" id="loadingSection">
+            <div class="spinner"></div>
+            <h3>Running Comprehensive Security Analysis...</h3>
+            <p>This may take a few minutes. Please wait.</p>
+        </div>
+
+        <div class="results-section" id="resultsSection">
+            <div class="results-header">
+                <h2>📊 Analysis Results</h2>
+                <p>Comprehensive security analysis completed</p>
+            </div>
+
+            <div class="results-content">
+                <div class="tabs">
+                    <button class="tab active" onclick="showTab('summary')">📈 Summary</button>
+                    <button class="tab" onclick="showTab('testcases')">🧪 Test Cases</button>
+                    <button class="tab" onclick="showTab('vulnerabilities')">🚨 Vulnerabilities</button>
+                    <button class="tab" onclick="showTab('endpoints')">🔗 Endpoints</button>
+                    <button class="tab" onclick="showTab('coverage')">📋 Coverage</button>
+                </div>
+
+                <div id="summary" class="tab-content active">
+                    <div id="summaryContent">
+                        <div class="summary-grid" id="summaryGrid"></div>
+                        <div id="summaryText"></div>
+                    </div>
+                </div>
+
+                <div id="testcases" class="tab-content">
+                    <div class="table-container">
+                        <table id="testCasesTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Severity</th>
+                                    <th>OWASP</th>
+                                    <th>Steps</th>
+                                    <th>Expected Result</th>
+                                    <th>Automation</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <p style="margin-top: 15px; color: #666;">
+                        <a href="/download/test_cases" class="download-btn">💾 Download Test Cases CSV</a>
+                    </p>
+                </div>
+
+                <div id="vulnerabilities" class="tab-content">
+                    <div class="table-container">
+                        <table id="vulnerabilitiesTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Severity</th>
+                                    <th>OWASP</th>
+                                    <th>File</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <p style="margin-top: 15px; color: #666;">
+                        <a href="/download/vulnerabilities" class="download-btn">💾 Download Vulnerabilities CSV</a>
+                    </p>
+                </div>
+
+                <div id="endpoints" class="tab-content">
+                    <div class="table-container">
+                        <table id="endpointsTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Method</th>
+                                    <th>Path</th>
+                                    <th>Framework</th>
+                                    <th>Auth Required</th>
+                                    <th>Parameters</th>
+                                    <th>Source</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <p style="margin-top: 15px; color: #666;">
+                        <a href="/download/endpoints" class="download-btn">💾 Download Endpoints CSV</a>
+                    </p>
+                </div>
+
+                <div id="coverage" class="tab-content">
+                    <div class="table-container">
+                        <table id="coverageTable">
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Value</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <p style="margin-top: 15px; color: #666;">
+                        <a href="/download/coverage" class="download-btn">💾 Download Coverage CSV</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedFiles = [];
+
+        // File upload handling
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileList = document.getElementById('fileList');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+
+            const files = Array.from(e.dataTransfer.files);
+            handleFiles(files);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            const files = Array.from(e.target.files);
+            handleFiles(files);
+        });
+
+        function handleFiles(files) {
+            selectedFiles = [];
+            files.forEach(file => {
+                if (isValidFile(file)) {
+                    selectedFiles.push(file);
+                }
+            });
+
+            displayFileList();
+            updateAnalyzeButton();
+        }
+
+        function isValidFile(file) {
+            const validExtensions = ['.zip', '.rar', '.tar', '.gz', '.pdf', '.md', '.txt'];
+            const fileName = file.name.toLowerCase();
+            return validExtensions.some(ext => fileName.endsWith(ext));
+        }
+
+        function getFileType(filename) {
+            const reportExtensions = ['.pdf', '.md', '.txt'];
+            const codeExtensions = ['.zip', '.rar', '.tar', '.gz'];
+
+            const lower = filename.toLowerCase();
+
+            if (reportExtensions.some(ext => lower.endsWith(ext))) {
+                return 'report';
+            } else if (codeExtensions.some(ext => lower.endsWith(ext))) {
+                return 'code';
+            }
+            return 'unknown';
+        }
+
+        function displayFileList() {
+            if (selectedFiles.length === 0) {
+                fileList.innerHTML = '';
+                return;
+            }
+
+            fileList.innerHTML = '<h3>Selected Files:</h3>';
+            selectedFiles.forEach((file, index) => {
+                const fileType = getFileType(file.name);
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                fileItem.innerHTML = `
+                    <div>
+                        <strong>${file.name}</strong>
+                        <span class="file-type-badge file-type-${fileType}">${fileType}</span>
+                        <small style="color: #666; margin-left: 10px;">${(file.size / 1024 / 1024).toFixed(2)} MB</small>
+                    </div>
+                    <button type="button" onclick="removeFile(${index})" style="background: #f44336; color: white; border: none; border-radius: 3px; padding: 5px 10px; cursor: pointer;">Remove</button>
+                `;
+                fileList.appendChild(fileItem);
+            });
+        }
+
+        function removeFile(index) {
+            selectedFiles.splice(index, 1);
+            displayFileList();
+            updateAnalyzeButton();
+        }
+
+        function updateAnalyzeButton() {
+            analyzeBtn.disabled = selectedFiles.length === 0;
+        }
+
+        // Form submission
+        document.getElementById('analysisForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (selectedFiles.length === 0) {
+                alert('Please select at least one file to analyze.');
+                return;
+            }
+
+            // Show loading
+            document.querySelector('.upload-section').style.display = 'none';
+            document.getElementById('loadingSection').style.display = 'block';
+            document.getElementById('resultsSection').style.display = 'none';
+
+            // Prepare form data
+            const formData = new FormData();
+            selectedFiles.forEach((file, index) => {
+                formData.append(`file_${index}`, file);
+            });
+
+            try {
+                const response = await fetch('/analyze', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.status === 'success') {
+                    displayResults(result.results);
+                } else {
+                    throw new Error(result.error || 'Analysis failed');
+                }
+
+            } catch (error) {
+                console.error('Analysis error:', error);
+                document.getElementById('loadingSection').innerHTML = `
+                    <div class="error">
+                        <h3>❌ Analysis Failed</h3>
+                        <p>${error.message}</p>
+                        <button onclick="location.reload()" class="upload-btn" style="margin-top: 15px;">Try Again</button>
+                    </div>
+                `;
+            }
+        });
+
+        function displayResults(results) {
+            document.getElementById('loadingSection').style.display = 'none';
+            document.getElementById('resultsSection').style.display = 'block';
+
+            // Display summary
+            displaySummary(results.analysis_summary || {});
+
+            // Display tables
+            displayTestCases(results.test_cases || []);
+            displayVulnerabilities(results.vulnerabilities || []);
+            displayEndpoints(results.endpoints || []);
+            displayCoverage(results.coverage || []);
+
+            // Show success message
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success';
+            successDiv.innerHTML = `
+                <h3>✅ Analysis Completed Successfully!</h3>
+                <p>Found ${results.test_cases?.length || 0} test cases, ${results.vulnerabilities?.length || 0} vulnerabilities, and ${results.endpoints?.length || 0} endpoints.</p>
+            `;
+            document.querySelector('.results-header').appendChild(successDiv);
+        }
+
+        function displaySummary(summary) {
+            const summaryGrid = document.getElementById('summaryGrid');
+            summaryGrid.innerHTML = '';
+
+            const metrics = [
+                { key: 'total_endpoints', label: 'Total Endpoints', icon: '🔗' },
+                { key: 'total_vulnerabilities', label: 'Vulnerabilities', icon: '🚨' },
+                { key: 'total_test_cases', label: 'Test Cases', icon: '🧪' },
+                { key: 'critical_high_tests', label: 'Critical/High Tests', icon: '⚠️' },
+                { key: 'automation_ready_tests', label: 'Automation Ready', icon: '🤖' },
+                { key: 'endpoint_coverage', label: 'Endpoint Coverage', icon: '📊' }
+            ];
+
+            metrics.forEach(metric => {
+                const value = summary[metric.key] || 0;
+                const card = document.createElement('div');
+                card.className = 'summary-card';
+                card.innerHTML = `
+                    <h3>${metric.icon} ${metric.label}</h3>
+                    <div class="value">${typeof value === 'string' && value.includes('%') ? value : value}</div>
+                `;
+                summaryGrid.appendChild(card);
+            });
+        }
+
+        function displayTestCases(testCases) {
+            const tbody = document.querySelector('#testCasesTable tbody');
+            tbody.innerHTML = '';
+
+            testCases.forEach(testCase => {
+                const row = document.createElement('tr');
+                const severity = testCase.severity?.toLowerCase() || 'medium';
+
+                // Format steps
+                let steps = '';
+                if (testCase.steps) {
+                    if (Array.isArray(testCase.steps)) {
+                        steps = testCase.steps.join('<br>');
+                    } else if (typeof testCase.steps === 'string') {
+                        try {
+                            const parsedSteps = JSON.parse(testCase.steps);
+                            steps = Array.isArray(parsedSteps) ? parsedSteps.join('<br>') : testCase.steps;
+                        } catch {
+                            steps = testCase.steps;
+                        }
+                    }
+                }
+
+                row.innerHTML = `
+                    <td>${testCase.id || 'N/A'}</td>
+                    <td><strong>${testCase.title || 'Untitled Test'}</strong></td>
+                    <td>${testCase.category || 'N/A'}</td>
+                    <td class="severity-${severity}">${testCase.severity || 'Medium'}</td>
+                    <td>${testCase.owasp_category || 'N/A'}</td>
+                    <td style="max-width: 300px; font-size: 12px;">${steps}</td>
+                    <td style="max-width: 250px; font-size: 12px;">${testCase.expected_result || 'N/A'}</td>
+                    <td>${testCase.automation_level || 'Manual'}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function displayVulnerabilities(vulnerabilities) {
+            const tbody = document.querySelector('#vulnerabilitiesTable tbody');
+            tbody.innerHTML = '';
+
+            vulnerabilities.forEach(vuln => {
+                const row = document.createElement('tr');
+                const severity = vuln.severity?.toLowerCase() || 'medium';
+
+                row.innerHTML = `
+                    <td>${vuln.id || 'N/A'}</td>
+                    <td><strong>${vuln.title || 'Untitled Vulnerability'}</strong></td>
+                    <td class="severity-${severity}">${vuln.severity || 'Medium'}</td>
+                    <td>${vuln.owasp_category || 'N/A'}</td>
+                    <td>${vuln.file || 'N/A'}</td>
+                    <td>${vuln.line_start || 'N/A'}</td>
+                    <td style="max-width: 300px; font-size: 12px;">${vuln.description || 'N/A'}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function displayEndpoints(endpoints) {
+            const tbody = document.querySelector('#endpointsTable tbody');
+            tbody.innerHTML = '';
+
+            endpoints.forEach(endpoint => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${endpoint.id || 'N/A'}</td>
+                    <td><span style="background: #e3f2fd; padding: 2px 6px; border-radius: 3px; font-weight: bold;">${endpoint.method || 'GET'}</span></td>
+                    <td><code>${endpoint.path || 'N/A'}</code></td>
+                    <td>${endpoint.framework || 'N/A'}</td>
+                    <td>${endpoint.auth_required === 'likely' ? '🔒 Yes' : '🔓 No'}</td>
+                    <td>${endpoint.has_parameters ? '✅ Yes' : '❌ No'}</td>
+                    <td>${endpoint.source || 'N/A'}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function displayCoverage(coverage) {
+            const tbody = document.querySelector('#coverageTable tbody');
+            tbody.innerHTML = '';
+
+            // If coverage is an object, convert to array
+            if (coverage && typeof coverage === 'object' && !Array.isArray(coverage)) {
+                const coverageArray = [];
+                Object.entries(coverage).forEach(([key, value]) => {
+                    coverageArray.push({
+                        metric: key.replace(/_/g, ' ').replace(/\w/g, l => l.toUpperCase()),
+                        value: value,
+                        description: getCoverageDescription(key)
+                    });
+                });
+                coverage = coverageArray;
+            }
+
+            if (Array.isArray(coverage)) {
+                coverage.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><strong>${item.metric || item.Metric || 'N/A'}</strong></td>
+                        <td>${item.value || item.Value || 'N/A'}</td>
+                        <td style="font-size: 12px; color: #666;">${item.description || item.Description || 'N/A'}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+        }
+
+        function getCoverageDescription(key) {
+            const descriptions = {
+                'total_endpoints': 'Total number of API endpoints discovered',
+                'endpoints_with_tests': 'Endpoints that have associated test cases',
+                'endpoint_coverage_pct': 'Percentage of endpoints covered by tests',
+                'total_test_cases': 'Total number of generated test cases',
+                'owasp_categories_covered': 'OWASP Top 10 categories addressed',
+                'owasp_coverage_pct': 'Percentage of OWASP categories covered',
+                'security_tests': 'Number of security-focused test cases',
+                'automation_ready_tests': 'Tests ready for automated execution'
+            };
+            return descriptions[key] || 'Coverage metric';
+        }
+
+        function showTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to selected tab
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

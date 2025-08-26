@@ -1,96 +1,109 @@
-2025-08-26 08:27:27,737 - root - INFO - Starting AI-Powered Static Analysis Tool v2.0.0
-2025-08-26 08:27:27,739 - orchestrator - INFO - Running enhanced targeted analysis - Report: False, Code: True, App URL: False, SAST: True, Dynamic: False, LLM: True
-2025-08-26 08:27:27,739 - orchestrator - INFO - Starting enhanced analysis workflow with robust error handling
-2025-08-26 08:27:27,739 - orchestrator - INFO - Step 1: Skipping report parsing (no report provided)
-2025-08-26 08:27:27,740 - orchestrator - INFO - Step 2: Analyzing source code
-2025-08-26 08:27:27,740 - code_analyzer - INFO - Starting aggressive code analysis of: ./ecommerce_sanity_stripe-main
-2025-08-26 08:27:27,741 - code_analyzer - INFO - Found 22 code files to analyze
-2025-08-26 08:27:27,744 - code_analyzer - DEBUG - Pattern detection: 3 endpoints in Cart.jsx
-2025-08-26 08:27:27,748 - code_analyzer - DEBUG - Pattern detection: 2 endpoints in hello.js
-2025-08-26 08:27:27,749 - code_analyzer - DEBUG - Pattern detection: 2 endpoints in stripe.js
-2025-08-26 08:27:27,753 - code_analyzer - INFO - Processed 9 raw endpoints into 2 final endpoints
-2025-08-26 08:27:27,753 - code_analyzer - INFO - Adding e-commerce fallback endpoints...
-2025-08-26 08:27:27,755 - code_analyzer - INFO - Aggressive analysis complete: 14 endpoints found from 3 files
-2025-08-26 08:27:27,756 - orchestrator - INFO - SUCCESS: Code analysis completed: 14 endpoints found
-2025-08-26 08:27:27,757 - orchestrator - INFO - Step 3: Running comprehensive SAST scan
-2025-08-26 08:27:27,757 - sast_runner - INFO - Starting comprehensive SAST scan
-2025-08-26 08:27:31,015 - sast_runner - INFO - Running Semgrep with config: auto
-2025-08-26 08:27:41,413 - sast_runner - WARNING - Semgrep config 'auto' failed (return code 2) - config may not exist
-2025-08-26 08:27:41,414 - sast_runner - WARNING - FAILED: auto scan failed
-2025-08-26 08:27:41,414 - sast_runner - INFO - Running Semgrep with config: p/security-audit
-2025-08-26 08:27:48,061 - sast_runner - WARNING - Semgrep config 'p/security-audit' failed (return code 2) - config may not exist
-2025-08-26 08:27:48,061 - sast_runner - WARNING - FAILED: security-audit scan failed
-2025-08-26 08:27:48,061 - sast_runner - INFO - Running Semgrep with config: p/javascript
-2025-08-26 08:27:54,213 - sast_runner - WARNING - Semgrep config 'p/javascript' failed (return code 2) - config may not exist
-2025-08-26 08:27:54,213 - sast_runner - WARNING - FAILED: javascript scan failed
-2025-08-26 08:27:54,213 - sast_runner - INFO - Running Semgrep with config: p/python
-2025-08-26 08:28:00,890 - sast_runner - WARNING - Semgrep config 'p/python' failed (return code 2) - config may not exist
-2025-08-26 08:28:00,890 - sast_runner - WARNING - FAILED: python scan failed
-2025-08-26 08:28:00,891 - sast_runner - INFO - Running Semgrep with config: p/generic
-2025-08-26 08:28:08,284 - sast_runner - WARNING - Semgrep failed with return code 7
-2025-08-26 08:28:08,284 - sast_runner - DEBUG - Semgrep stderr: [00.09][WARNING](ca-certs): Ignored 1 trust anchors.
+2025-08-26 11:30:13,547 - root - INFO - Starting AI-Powered Static Analysis Tool v2.0.0
+2025-08-26 11:30:13,551 - orchestrator - INFO - Running enhanced targeted analysis - Report: False, Code: True, App URL: False, SAST: True, Dynamic: False, LLM: True
+2025-08-26 11:30:13,551 - orchestrator - INFO - Starting enhanced analysis workflow with robust error handling
+2025-08-26 11:30:13,552 - orchestrator - INFO - Step 1: Skipping report parsing (no report provided)
+2025-08-26 11:30:13,553 - orchestrator - INFO - Step 2: Analyzing source code
+2025-08-26 11:30:13,553 - code_analyzer - INFO - Starting aggressive code analysis of: ./ecommerce_sanity_stripe-main
+2025-08-26 11:30:13,555 - code_analyzer - INFO - Found 22 code files to analyze
+2025-08-26 11:30:13,559 - code_analyzer - DEBUG - Pattern detection: 3 endpoints in Cart.jsx
+2025-08-26 11:30:13,566 - code_analyzer - DEBUG - Pattern detection: 2 endpoints in hello.js
+2025-08-26 11:30:13,569 - code_analyzer - DEBUG - Pattern detection: 2 endpoints in stripe.js
+2025-08-26 11:30:13,575 - code_analyzer - INFO - Processed 9 raw endpoints into 2 final endpoints
+2025-08-26 11:30:13,575 - code_analyzer - INFO - Adding e-commerce fallback endpoints...
+2025-08-26 11:30:13,576 - code_analyzer - INFO - Aggressive analysis complete: 14 endpoints found from 3 files
+2025-08-26 11:30:13,577 - orchestrator - INFO - SUCCESS: Code analysis completed: 14 endpoints found
+2025-08-26 11:30:13,577 - orchestrator - INFO - Step 3: Running comprehensive SAST scan
+2025-08-26 11:30:13,578 - sast_runner - INFO - Starting working SAST scan
+2025-08-26 11:30:17,580 - sast_runner - INFO - Semgrep version: 1.133.0
+2025-08-26 11:30:17,580 - sast_runner - INFO - Testing Semgrep config: r/javascript.lang.security
+2025-08-26 11:30:34,556 - sast_runner - INFO - SUCCESS: basic-security found 0 issues
+2025-08-26 11:30:34,557 - sast_runner - INFO - Testing Semgrep config: r/owasp-top-ten
+2025-08-26 11:30:50,164 - sast_runner - WARNING - FAILED: owasp-top-ten scan failed
+2025-08-26 11:30:50,165 - sast_runner - INFO - Testing Semgrep config: r/security-audit
+2025-08-26 11:31:02,247 - sast_runner - WARNING - FAILED: security-audit scan failed
+2025-08-26 11:31:02,248 - sast_runner - INFO - Testing Semgrep config: r/javascript.browser.security.audit.xss
+2025-08-26 11:31:17,706 - sast_runner - WARNING - FAILED: xss-detection scan failed
+2025-08-26 11:31:17,707 - sast_runner - INFO - Testing Semgrep config: r/javascript.lang.security.audit.sqli
+2025-08-26 11:31:35,525 - sast_runner - INFO - SUCCESS: sql-injection found 0 issues
+2025-08-26 11:31:35,526 - sast_runner - INFO - Running basic vulnerability pattern scan
+2025-08-26 11:31:35,526 - sast_runner - INFO - Running basic vulnerability pattern scan
+2025-08-26 11:31:35,542 - sast_runner - INFO - Basic pattern scan found 11 potential issues
+2025-08-26 11:31:35,544 - sast_runner - INFO - SAST scan complete: 3 successful configs
+2025-08-26 11:31:35,544 - sast_runner - INFO - Found 11 unique vulnerabilities
+2025-08-26 11:31:35,544 - orchestrator - INFO - SUCCESS: SAST scan completed: 11 vulnerabilities found
+2025-08-26 11:31:35,545 - orchestrator - INFO - Step 4: Skipping dynamic analysis
+2025-08-26 11:31:35,545 - orchestrator - INFO - Step 5: Merging endpoint discovery results
+2025-08-26 11:31:35,546 - orchestrator - INFO - Merged endpoints: 14 static + 0 dynamic = 14 total
+2025-08-26 11:31:35,546 - orchestrator - INFO - SUCCESS: Endpoint merging completed: 14 total endpoints
+2025-08-26 11:31:35,547 - orchestrator - INFO - Step 6: Merging vulnerability discovery results
+2025-08-26 11:31:35,547 - orchestrator - INFO - Merged vulnerabilities: 11 SAST + 0 dynamic = 11 total
+2025-08-26 11:31:35,548 - orchestrator - INFO - SUCCESS: Vulnerability merging completed: 11 total vulnerabilities
+2025-08-26 11:31:35,549 - orchestrator - INFO - Step 7: Generating enhanced application summary
+2025-08-26 11:31:35,549 - llm_client - INFO - Using API key from GEMINI_API_KEY
+2025-08-26 11:31:35,550 - llm_client - DEBUG - Making request to https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent with model gemini-1.5-pro
+2025-08-26 11:31:35,556 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): generativelanguage.googleapis.com:443
+2025-08-26 11:31:39,242 - urllib3.connectionpool - DEBUG - https://generativelanguage.googleapis.com:443 "POST /v1beta/models/gemini-1.5-pro:generateContent HTTP/1.1" 401 None
+2025-08-26 11:31:39,243 - llm_client - ERROR - API request failed: 401 - {
+  "error": {
+    "code": 401,
+    "message": "Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.",
+    "status": "UNAUTHENTICATED"
+  }
+}
 
-2025-08-26 08:28:08,284 - sast_runner - WARNING - FAILED: generic scan failed
-2025-08-26 08:28:08,284 - sast_runner - INFO - Running Semgrep with config: p/command-injection
-2025-08-26 08:28:10,529 - root - INFO - Analysis cancelled by user
-2025-08-26 08:28:10,530 - orchestrator - INFO - Enhanced cleanup completed
-2025-08-26 08:28:15,029 - root - INFO - Starting AI-Powered Static Analysis Tool v2.0.0
-2025-08-26 08:28:15,031 - orchestrator - INFO - Running enhanced targeted analysis - Report: False, Code: True, App URL: False, SAST: True, Dynamic: False, LLM: True
-2025-08-26 08:28:15,032 - orchestrator - INFO - Starting enhanced analysis workflow with robust error handling
-2025-08-26 08:28:15,032 - orchestrator - INFO - Step 1: Skipping report parsing (no report provided)
-2025-08-26 08:28:15,032 - orchestrator - INFO - Step 2: Analyzing source code
-2025-08-26 08:28:15,032 - code_analyzer - INFO - Starting aggressive code analysis of: ./ecommerce_sanity_stripe-main
-2025-08-26 08:28:15,034 - code_analyzer - INFO - Found 22 code files to analyze
-2025-08-26 08:28:15,036 - code_analyzer - DEBUG - Pattern detection: 3 endpoints in Cart.jsx
-2025-08-26 08:28:15,041 - code_analyzer - DEBUG - Pattern detection: 2 endpoints in hello.js
-2025-08-26 08:28:15,042 - code_analyzer - DEBUG - Pattern detection: 2 endpoints in stripe.js
-2025-08-26 08:28:15,044 - code_analyzer - INFO - Processed 9 raw endpoints into 2 final endpoints
-2025-08-26 08:28:15,044 - code_analyzer - INFO - Adding e-commerce fallback endpoints...
-2025-08-26 08:28:15,046 - code_analyzer - INFO - Aggressive analysis complete: 14 endpoints found from 3 files
-2025-08-26 08:28:15,046 - orchestrator - INFO - SUCCESS: Code analysis completed: 14 endpoints found
-2025-08-26 08:28:15,047 - orchestrator - INFO - Step 3: Running comprehensive SAST scan
-2025-08-26 08:28:15,047 - sast_runner - INFO - Starting comprehensive SAST scan
-2025-08-26 08:28:17,663 - sast_runner - INFO - Running Semgrep with config: auto
-2025-08-26 08:28:23,660 - sast_runner - WARNING - Semgrep config 'auto' failed (return code 2) - config may not exist
-2025-08-26 08:28:23,660 - sast_runner - WARNING - FAILED: auto scan failed
-2025-08-26 08:28:23,660 - sast_runner - INFO - Running Semgrep with config: p/security-audit
-2025-08-26 08:28:30,283 - sast_runner - WARNING - Semgrep config 'p/security-audit' failed (return code 2) - config may not exist
-2025-08-26 08:28:30,284 - sast_runner - WARNING - FAILED: security-audit scan failed
-2025-08-26 08:28:30,284 - sast_runner - INFO - Running Semgrep with config: p/javascript
-2025-08-26 08:28:36,499 - sast_runner - WARNING - Semgrep config 'p/javascript' failed (return code 2) - config may not exist
-2025-08-26 08:28:36,500 - sast_runner - WARNING - FAILED: javascript scan failed
-2025-08-26 08:28:36,500 - sast_runner - INFO - Running Semgrep with config: p/python
-2025-08-26 08:28:42,584 - sast_runner - WARNING - Semgrep config 'p/python' failed (return code 2) - config may not exist
-2025-08-26 08:28:42,584 - sast_runner - WARNING - FAILED: python scan failed
-2025-08-26 08:28:42,584 - sast_runner - INFO - Running Semgrep with config: p/generic
-2025-08-26 08:28:48,162 - sast_runner - WARNING - Semgrep failed with return code 7
-2025-08-26 08:28:48,163 - sast_runner - DEBUG - Semgrep stderr: [00.09][WARNING](ca-certs): Ignored 1 trust anchors.
+2025-08-26 11:31:39,245 - orchestrator - INFO - SUCCESS: Application summary generated successfully
+2025-08-26 11:31:39,247 - orchestrator - INFO - Step 8: Generating comprehensive test cases
+2025-08-26 11:31:39,247 - test_generator - INFO - Pass 1: Generating comprehensive security test cases using LLM
+2025-08-26 11:31:39,248 - llm_client - DEBUG - Making request to https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent with model gemini-1.5-pro
+2025-08-26 11:31:39,251 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): generativelanguage.googleapis.com:443
+2025-08-26 11:31:42,314 - urllib3.connectionpool - DEBUG - https://generativelanguage.googleapis.com:443 "POST /v1beta/models/gemini-1.5-pro:generateContent HTTP/1.1" 401 None
+2025-08-26 11:31:42,314 - llm_client - ERROR - API request failed: 401 - {
+  "error": {
+    "code": 401,
+    "message": "Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.",
+    "status": "UNAUTHENTICATED"
+  }
+}
 
-2025-08-26 08:28:48,163 - sast_runner - WARNING - FAILED: generic scan failed
-2025-08-26 08:28:48,163 - sast_runner - INFO - Running Semgrep with config: p/command-injection
-2025-08-26 08:28:54,636 - sast_runner - WARNING - Semgrep config 'p/command-injection' failed (return code 2) - config may not exist
-2025-08-26 08:28:54,637 - sast_runner - WARNING - FAILED: command-injection scan failed
-2025-08-26 08:28:54,637 - sast_runner - INFO - Running Semgrep with config: p/sql-injection
-2025-08-26 08:29:00,058 - sast_runner - WARNING - Semgrep config 'p/sql-injection' failed (return code 2) - config may not exist
-2025-08-26 08:29:00,059 - sast_runner - WARNING - FAILED: sql-injection scan failed
-2025-08-26 08:29:00,059 - sast_runner - INFO - SAST scan summary: 0 successful, 7 failed
-2025-08-26 08:29:00,060 - sast_runner - INFO - Found 0 unique vulnerabilities
-2025-08-26 08:29:00,060 - orchestrator - WARNING - WARNING: SAST scan completed with limited results
-2025-08-26 08:29:00,061 - orchestrator - INFO - Step 4: Skipping dynamic analysis
-2025-08-26 08:29:00,061 - orchestrator - INFO - Step 5: Merging endpoint discovery results
-2025-08-26 08:29:00,062 - orchestrator - INFO - Merged endpoints: 14 static + 0 dynamic = 14 total
-2025-08-26 08:29:00,063 - orchestrator - INFO - SUCCESS: Endpoint merging completed: 14 total endpoints
-2025-08-26 08:29:00,063 - orchestrator - INFO - Step 6: Merging vulnerability discovery results
-2025-08-26 08:29:00,064 - orchestrator - INFO - Merged vulnerabilities: 0 SAST + 0 dynamic = 0 total
-2025-08-26 08:29:00,067 - orchestrator - INFO - SUCCESS: Vulnerability merging completed: 0 total vulnerabilities
-2025-08-26 08:29:00,069 - orchestrator - INFO - Step 7: Generating enhanced application summary
-2025-08-26 08:29:00,071 - llm_client - INFO - Using API key from OPENROUTER_API_KEY
-2025-08-26 08:29:00,072 - llm_client - DEBUG - Making request to https://openrouter.ai/api/v1/chat/completions with model openai/gpt-5
-2025-08-26 08:29:00,081 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): openrouter.ai:443
-2025-08-26 08:29:02,472 - urllib3.connectionpool - DEBUG - https://openrouter.ai:443 "POST /api/v1/chat/completions HTTP/1.1" 200 None
-2025-08-26 08:29:50,320 - orchestrator - INFO - SUCCESS: Application summary generated successfully
-2025-08-26 08:29:50,321 - orchestrator - INFO - Step 8: Generating comprehensive test cases
-2025-08-26 08:29:50,321 - test_generator - INFO - Pass 1: Generating comprehensive security test cases using LLM
-2025-08-26 08:29:50,322 - llm_client - DEBUG - Making request to https://openrouter.ai/api/v1/chat/completions with model openai/gpt-5
-2025-08-26 08:29:50,324 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): openrouter.ai:443
-2025-08-26 08:29:52,771 - urllib3.connectionpool - DEBUG - https://openrouter.ai:443 "POST /api/v1/chat/completions HTTP/1.1" 200 None
+2025-08-26 11:31:42,316 - test_generator - INFO - Pass 1 complete: 0 LLM-generated security tests
+2025-08-26 11:31:42,316 - test_generator - INFO - Pass 2: Generating business logic test cases using LLM
+2025-08-26 11:31:42,317 - llm_client - DEBUG - Making request to https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent with model gemini-1.5-pro
+2025-08-26 11:31:42,320 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): generativelanguage.googleapis.com:443
+2025-08-26 11:31:44,464 - urllib3.connectionpool - DEBUG - https://generativelanguage.googleapis.com:443 "POST /v1beta/models/gemini-1.5-pro:generateContent HTTP/1.1" 401 None
+2025-08-26 11:31:44,465 - llm_client - ERROR - API request failed: 401 - {
+  "error": {
+    "code": 401,
+    "message": "Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.",
+    "status": "UNAUTHENTICATED"
+  }
+}
+
+2025-08-26 11:31:44,467 - test_generator - INFO - Pass 2 complete: 0 LLM-generated business tests
+2025-08-26 11:31:44,467 - test_generator - INFO - Pass 3: Generating comprehensive OWASP template-based tests
+2025-08-26 11:31:44,469 - test_generator - INFO - Pass 3 complete: 35 template-based tests
+2025-08-26 11:31:44,470 - test_generator - INFO - Pass 4: Generating endpoint-specific test cases
+2025-08-26 11:31:44,471 - test_generator - INFO - Pass 4 complete: 112 endpoint-specific tests
+2025-08-26 11:31:44,472 - test_generator - INFO - Pass 5: Generating vulnerability-specific test cases
+2025-08-26 11:31:44,472 - test_generator - INFO - Pass 5 complete: 44 vulnerability-specific tests
+2025-08-26 11:31:44,473 - test_generator - INFO - Pass 6: Generating business rule validation tests
+2025-08-26 11:31:44,474 - test_generator - INFO - Pass 6 complete: 20 business rule tests
+2025-08-26 11:31:44,476 - test_generator - INFO - Removed 34 duplicate tests
+2025-08-26 11:31:44,477 - test_generator - INFO - Multi-pass generation complete: 177 total test cases generated
+2025-08-26 11:31:44,478 - orchestrator - INFO - SUCCESS: Test case generation completed: 177 test cases generated
+2025-08-26 11:31:44,479 - orchestrator - INFO - Step 9: Calculating enhanced coverage metrics
+2025-08-26 11:31:44,479 - orchestrator - INFO - SUCCESS: Coverage metrics calculated successfully
+2025-08-26 11:31:44,480 - orchestrator - INFO - Step 10: Compiling final enhanced results
+2025-08-26 11:31:44,481 - orchestrator - INFO - SUCCESS: Results compilation completed successfully
+2025-08-26 11:31:44,481 - orchestrator - INFO - Step 11: Exporting comprehensive results
+2025-08-26 11:31:44,505 - exporter - INFO - Exported manifest JSON: results\analysis_results_20250826_113144_manifest.json
+2025-08-26 11:31:44,508 - exporter - INFO - Exported 14 endpoints to: results\analysis_results_20250826_113144_endpoints.csv
+2025-08-26 11:31:44,512 - exporter - INFO - Exported 11 vulnerabilities to: results\analysis_results_20250826_113144_vulnerabilities.csv
+2025-08-26 11:31:44,517 - exporter - INFO - Exported 177 test cases to: results\analysis_results_20250826_113144_test_cases.csv
+2025-08-26 11:31:44,521 - exporter - INFO - Exported coverage matrix to: results\analysis_results_20250826_113144_coverage.csv
+2025-08-26 11:31:44,522 - exporter - INFO - Exported summary report: results\analysis_results_20250826_113144_summary.md
+2025-08-26 11:31:44,523 - exporter - INFO - Successfully exported 6 files
+2025-08-26 11:31:44,525 - exporter - INFO - Created export manifest: results\export_manifest.json
+2025-08-26 11:31:44,526 - orchestrator - INFO - SUCCESS: Results export completed: 7 files generated
+2025-08-26 11:31:44,526 - orchestrator - INFO - Enhanced analysis workflow completed: 3/5 components successful
+2025-08-26 11:31:44,533 - root - INFO - Enhanced analysis completed successfully
+2025-08-26 11:31:44,533 - orchestrator - INFO - Enhanced cleanup completed
