@@ -34,3 +34,63 @@
 2025-08-26 08:28:08,284 - sast_runner - INFO - Running Semgrep with config: p/command-injection
 2025-08-26 08:28:10,529 - root - INFO - Analysis cancelled by user
 2025-08-26 08:28:10,530 - orchestrator - INFO - Enhanced cleanup completed
+2025-08-26 08:28:15,029 - root - INFO - Starting AI-Powered Static Analysis Tool v2.0.0
+2025-08-26 08:28:15,031 - orchestrator - INFO - Running enhanced targeted analysis - Report: False, Code: True, App URL: False, SAST: True, Dynamic: False, LLM: True
+2025-08-26 08:28:15,032 - orchestrator - INFO - Starting enhanced analysis workflow with robust error handling
+2025-08-26 08:28:15,032 - orchestrator - INFO - Step 1: Skipping report parsing (no report provided)
+2025-08-26 08:28:15,032 - orchestrator - INFO - Step 2: Analyzing source code
+2025-08-26 08:28:15,032 - code_analyzer - INFO - Starting aggressive code analysis of: ./ecommerce_sanity_stripe-main
+2025-08-26 08:28:15,034 - code_analyzer - INFO - Found 22 code files to analyze
+2025-08-26 08:28:15,036 - code_analyzer - DEBUG - Pattern detection: 3 endpoints in Cart.jsx
+2025-08-26 08:28:15,041 - code_analyzer - DEBUG - Pattern detection: 2 endpoints in hello.js
+2025-08-26 08:28:15,042 - code_analyzer - DEBUG - Pattern detection: 2 endpoints in stripe.js
+2025-08-26 08:28:15,044 - code_analyzer - INFO - Processed 9 raw endpoints into 2 final endpoints
+2025-08-26 08:28:15,044 - code_analyzer - INFO - Adding e-commerce fallback endpoints...
+2025-08-26 08:28:15,046 - code_analyzer - INFO - Aggressive analysis complete: 14 endpoints found from 3 files
+2025-08-26 08:28:15,046 - orchestrator - INFO - SUCCESS: Code analysis completed: 14 endpoints found
+2025-08-26 08:28:15,047 - orchestrator - INFO - Step 3: Running comprehensive SAST scan
+2025-08-26 08:28:15,047 - sast_runner - INFO - Starting comprehensive SAST scan
+2025-08-26 08:28:17,663 - sast_runner - INFO - Running Semgrep with config: auto
+2025-08-26 08:28:23,660 - sast_runner - WARNING - Semgrep config 'auto' failed (return code 2) - config may not exist
+2025-08-26 08:28:23,660 - sast_runner - WARNING - FAILED: auto scan failed
+2025-08-26 08:28:23,660 - sast_runner - INFO - Running Semgrep with config: p/security-audit
+2025-08-26 08:28:30,283 - sast_runner - WARNING - Semgrep config 'p/security-audit' failed (return code 2) - config may not exist
+2025-08-26 08:28:30,284 - sast_runner - WARNING - FAILED: security-audit scan failed
+2025-08-26 08:28:30,284 - sast_runner - INFO - Running Semgrep with config: p/javascript
+2025-08-26 08:28:36,499 - sast_runner - WARNING - Semgrep config 'p/javascript' failed (return code 2) - config may not exist
+2025-08-26 08:28:36,500 - sast_runner - WARNING - FAILED: javascript scan failed
+2025-08-26 08:28:36,500 - sast_runner - INFO - Running Semgrep with config: p/python
+2025-08-26 08:28:42,584 - sast_runner - WARNING - Semgrep config 'p/python' failed (return code 2) - config may not exist
+2025-08-26 08:28:42,584 - sast_runner - WARNING - FAILED: python scan failed
+2025-08-26 08:28:42,584 - sast_runner - INFO - Running Semgrep with config: p/generic
+2025-08-26 08:28:48,162 - sast_runner - WARNING - Semgrep failed with return code 7
+2025-08-26 08:28:48,163 - sast_runner - DEBUG - Semgrep stderr: [00.09][WARNING](ca-certs): Ignored 1 trust anchors.
+
+2025-08-26 08:28:48,163 - sast_runner - WARNING - FAILED: generic scan failed
+2025-08-26 08:28:48,163 - sast_runner - INFO - Running Semgrep with config: p/command-injection
+2025-08-26 08:28:54,636 - sast_runner - WARNING - Semgrep config 'p/command-injection' failed (return code 2) - config may not exist
+2025-08-26 08:28:54,637 - sast_runner - WARNING - FAILED: command-injection scan failed
+2025-08-26 08:28:54,637 - sast_runner - INFO - Running Semgrep with config: p/sql-injection
+2025-08-26 08:29:00,058 - sast_runner - WARNING - Semgrep config 'p/sql-injection' failed (return code 2) - config may not exist
+2025-08-26 08:29:00,059 - sast_runner - WARNING - FAILED: sql-injection scan failed
+2025-08-26 08:29:00,059 - sast_runner - INFO - SAST scan summary: 0 successful, 7 failed
+2025-08-26 08:29:00,060 - sast_runner - INFO - Found 0 unique vulnerabilities
+2025-08-26 08:29:00,060 - orchestrator - WARNING - WARNING: SAST scan completed with limited results
+2025-08-26 08:29:00,061 - orchestrator - INFO - Step 4: Skipping dynamic analysis
+2025-08-26 08:29:00,061 - orchestrator - INFO - Step 5: Merging endpoint discovery results
+2025-08-26 08:29:00,062 - orchestrator - INFO - Merged endpoints: 14 static + 0 dynamic = 14 total
+2025-08-26 08:29:00,063 - orchestrator - INFO - SUCCESS: Endpoint merging completed: 14 total endpoints
+2025-08-26 08:29:00,063 - orchestrator - INFO - Step 6: Merging vulnerability discovery results
+2025-08-26 08:29:00,064 - orchestrator - INFO - Merged vulnerabilities: 0 SAST + 0 dynamic = 0 total
+2025-08-26 08:29:00,067 - orchestrator - INFO - SUCCESS: Vulnerability merging completed: 0 total vulnerabilities
+2025-08-26 08:29:00,069 - orchestrator - INFO - Step 7: Generating enhanced application summary
+2025-08-26 08:29:00,071 - llm_client - INFO - Using API key from OPENROUTER_API_KEY
+2025-08-26 08:29:00,072 - llm_client - DEBUG - Making request to https://openrouter.ai/api/v1/chat/completions with model openai/gpt-5
+2025-08-26 08:29:00,081 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): openrouter.ai:443
+2025-08-26 08:29:02,472 - urllib3.connectionpool - DEBUG - https://openrouter.ai:443 "POST /api/v1/chat/completions HTTP/1.1" 200 None
+2025-08-26 08:29:50,320 - orchestrator - INFO - SUCCESS: Application summary generated successfully
+2025-08-26 08:29:50,321 - orchestrator - INFO - Step 8: Generating comprehensive test cases
+2025-08-26 08:29:50,321 - test_generator - INFO - Pass 1: Generating comprehensive security test cases using LLM
+2025-08-26 08:29:50,322 - llm_client - DEBUG - Making request to https://openrouter.ai/api/v1/chat/completions with model openai/gpt-5
+2025-08-26 08:29:50,324 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): openrouter.ai:443
+2025-08-26 08:29:52,771 - urllib3.connectionpool - DEBUG - https://openrouter.ai:443 "POST /api/v1/chat/completions HTTP/1.1" 200 None
